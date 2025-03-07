@@ -1,0 +1,18 @@
+import csv
+
+# Ruta para guardar datos en un archivo CSV
+@app.route('/guardar_csv', methods=['POST'])
+def guardar_csv():
+    data = request.form['data']
+    with open('datos/datos.csv', 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([data])
+    return redirect(url_for('index'))
+
+# Ruta para leer datos desde un archivo CSV
+@app.route('/leer_csv')
+def leer_csv():
+    with open('datos/datos.csv', 'r') as file:
+        reader = csv.reader(file)
+        datos = [row[0] for row in reader]
+    return render_template('resultado.html', datos=datos)
