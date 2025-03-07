@@ -1,0 +1,15 @@
+<h1>Usuarios Registrados</h1>
+<ul>
+    {% for usuario in datos %}
+        <li>{{ usuario.nombre }} - {{ usuario.email }}</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('index') }}">Volver</a>
+<ul>
+    {% for usuario in datos %}
+        <li>
+            {{ usuario.nombre }} - {{ usuario.email }}
+            <a href="{{ url_for('eliminar_db', id=usuario.id) }}">Eliminar</a>
+        </li>
+    {% endfor %}
+</ul>
