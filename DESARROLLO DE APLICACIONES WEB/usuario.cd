@@ -1,0 +1,15 @@
+# Ruta para guardar datos en la base de datos SQLite
+@app.route('/guardar_db', methods=['POST'])
+def guardar_db():
+    nombre = request.form['nombre']
+    email = request.form['email']
+    nuevo_usuario = Usuario(nombre=nombre, email=email)
+    db.session.add(nuevo_usuario)
+    db.session.commit()
+    return redirect(url_for('index'))
+
+# Ruta para leer datos desde la base de datos SQLite
+@app.route('/leer_db')
+def leer_db():
+    usuarios = Usuario.query.all()
+    return render_template('resultado.html', datos=usuarios)
