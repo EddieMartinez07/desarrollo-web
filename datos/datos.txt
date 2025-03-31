@@ -1,0 +1,26 @@
+from flask import Flask, render_template, request, redirect, url_for
+import os
+
+app = Flask(__name__)
+
+# Ruta para guardar datos en un archivo TXT
+@app.route('/guardar_txt', methods=['POST'])
+def guardar_txt():
+    data = request.form['data']
+    with open('datos/datos.txt', 'a') as file:
+        file.write(data + '\n')
+    return redirect(url_for('index'))
+
+# Ruta para leer datos desde un archivo TXT
+@app.route('/leer_txt')
+def leer_txt():
+    with open('datos/datos.txt', 'r') as file:
+        datos = file.readlines()
+    return render_template('resultado.html', datos=datos)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
