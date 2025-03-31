@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+    <div class="welcome-container">
+        <h2 class="welcome-title">Bienvenido a mi aplicación Flask</h2>
+        <p class="welcome-text">Esta es la página principal.</p>
+    </div>
+
+    <style>
+        .welcome-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .welcome-title {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .welcome-text {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .welcome-container p {
+            font-size: 16px;
+            margin-top: 20px;
+            color: #777;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Producto Agregado{% endblock %}
+
+{% block content %}
+    <div class="success-container">
+        <h2>¡Producto agregado con éxito!</h2>
+        <p>El producto ha sido registrado correctamente en la base de datos.</p>
+
+        <div class="buttons">
+            <a href="/agregar_producto" class="btn">Agregar otro producto</a>
+            <a href="/" class="btn">Volver al inicio</a>
+        </div>
+    </div>
+{% endblock %}
